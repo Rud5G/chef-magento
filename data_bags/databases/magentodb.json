@@ -1,0 +1,11 @@
+{
+    "id": "magentodb",
+    "development": {
+        "type": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "username": "magento",
+        "password": "dbpass",
+        "dbname": "magento"
+    }
+}

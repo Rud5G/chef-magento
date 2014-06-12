@@ -1,0 +1,20 @@
+{
+    "id": "magento",
+    "projectdir": "/srv/www/magento",
+    "owner": "deployer",
+    "group": "users",
+    "repository": "https://github.com/Rud5G/bugathon_march_2013.git",
+    "revision": "master",
+    "checkout_branch": "deploy",
+    "comment": "magento",
+    "writabledirs": ["media/","media/customer","media/dhl","media/downloadable","media/xmlconnect","var/","var/package/"],
+    "use_composer": false,
+    "db_migration": false,
+    "db_databag_id": "magentodb",
+    "database_template": "magento-app-etc-local.xml.erb",
+    "database_settings_file": "app/etc/local.xml"
+}
+
+
+
+

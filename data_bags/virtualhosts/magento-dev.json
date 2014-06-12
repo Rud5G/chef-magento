@@ -1,0 +1,16 @@
+{
+    "id": "magento-dev",
+    "enable": true,
+    "create_docroot": false,
+    "server_name": "magento.dev",
+    "server_aliases": [
+        "magento.local"
+    ],
+    "docroot": "/srv/www/magento/public",
+    "directory_index": [ "index.php", "index.html" ],
+    "directory_options": [ "Indexes", "FollowSymLinks" ],
+    "template": "web_app.conf.erb",
+    "cookbook": "magento",
+    "allow_override": "all",
+    "comment": "Magento Virtualhost"
+}

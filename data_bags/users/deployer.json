@@ -1,0 +1,15 @@
+{
+    "id": "deployer",
+    "password": "userpass",
+    "smbpasswd": "smbpass",
+    "ssh_keys": [
+        ""
+    ],
+    "ssh_private_key": "",
+    "ssh_public_key": "",
+    "groups": [ "www-data", "users" ],
+    "uid": 1001,
+    "gid": 1001,
+    "shell": "\/bin\/bash",
+    "comment": "User Name"
+}

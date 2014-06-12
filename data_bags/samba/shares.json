@@ -1,0 +1,18 @@
+{
+    "id": "shares",
+    "shares": {
+        "magento": {
+            "comment": "magento Development Share",
+            "path": "/srv/www/magento",
+            "only user": "no",
+            "guest ok": "no",
+            "writeable": "yes",
+            "browseable": "yes",
+            "revalidate": "yes",
+            "valid users": ["deployer"],
+            "create mask": "0664",
+            "directory mask": "0775" ,
+            "force user": "deployer"
+        }
+    }
+}
