@@ -12,7 +12,8 @@
     "db_migration": false,
     "db_databag_id": "magentodb",
     "database_template": "magento-app-etc-local.xml.erb",
-    "database_settings_file": "app/etc/local.xml"
+    "database_settings_file": "app/etc/local.xml",
+    "cookbook_name": "magento"
 }
 
 
