@@ -6,7 +6,7 @@
     "server_aliases": [
         "magento.local"
     ],
-    "docroot": "/srv/www/magento/public",
+    "docroot": "/srv/www/magento",
     "directory_index": [ "index.php", "index.html" ],
     "directory_options": [ "Indexes", "FollowSymLinks" ],
     "template": "web_app.conf.erb",
