@@ -4,7 +4,7 @@ maintainer_email 'r.gravestein@triple-networks.com'
 license          'Apache 2.0'
 description      'Installs/Configures magento'
 long_description 'Installs/Configures magento'
-version          '0.2.3'
+version          '0.3.0'
 
 depends 'baseserver', '~> 0.7.3'
 
