@@ -6,5 +6,5 @@ description      'Installs/Configures magento'
 long_description 'Installs/Configures magento'
 version          '0.2.1'
 
-depends 'zf2', '~> 0.4.2'
+depends 'zf2', '~> 0.4.3'
 
