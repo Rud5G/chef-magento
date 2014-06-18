@@ -110,7 +110,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.run_list = %w(
       role[base]
       recipe[magento::servernode]
-      recipe[zf2::development]
+      recipe[magento::development]
     )
   end
 end

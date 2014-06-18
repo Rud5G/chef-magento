@@ -39,5 +39,4 @@ The samba user password setup is not done correct in the first run, to fix:
 Author:: Triple-networks (<r.gravestein@triple-networks.com>)
 # Todo
 
-* dont depend on zf2
 
