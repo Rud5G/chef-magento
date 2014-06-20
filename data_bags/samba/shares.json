@@ -1,9 +1,9 @@
 {
     "id": "shares",
     "shares": {
-        "magento": {
-            "comment": "magento Development Share",
-            "path": "/srv/www/magento",
+        "srv-www": {
+            "comment": "Development Share",
+            "path": "/srv/www",
             "only user": "no",
             "guest ok": "no",
             "writeable": "yes",

@@ -93,6 +93,7 @@ begin
       bash 'install_composer' do
         user projectdata['owner']
         cwd projectdata['projectdir']
+        environment 'HOME' => projectdata['projectdir']
         code <<-EOH
           php composer.phar install
         EOH
@@ -100,10 +101,43 @@ begin
 
       # database databag id
       if projectdata['db_databag_id']
+
         databasedata = data_bag_item('databases', projectdata['db_databag_id'])[node.chef_environment]
 
-        cookbookname = projectdata['cookbook_name'] || cookbook_name.to_s
+        if projectdata['do_reinstall'] === true || projectdata['do_reinstall'] === 'auto'
+          vhostdata = data_bag_item('virtualhosts', projectdata['virtualhost_databag_id'])
+          # do install
+          bash 'do_install' do
+            user projectdata['owner']
+            cwd projectdata['projectdir']
+            creates projectdata['database_settings_file']
+            code <<-EOH
+              rm -f #{projectdata['database_settings_file']} && php -f htdocs/install.php -- \
+                --license_agreement_accepted "yes" \
+                --locale "en_US" \
+                --timezone "Europe/Berlin" \
+                --default_currency "EUR" \
+                --use_rewrites "yes" \
+                --use_secure "no" \
+                --use_secure_admin "no" \
+                --skip_url_validation \
+                --admin_firstname "FirstName" \
+                --admin_lastname "LastName" \
+                --admin_email "f.lastname@example.com" \
+                --admin_username "admin" \
+                --admin_password "admin123" \
+                --url "http://#{vhostdata['server_name']}/" \
+                --secure_base_url "http://#{vhostdata['server_name']}/" \
+                --db_host "#{databasedata['host']}" \
+                --db_name "#{databasedata['dbname']}" \
+                --db_user "#{databasedata['username']}" \
+                --db_pass "#{databasedata['password']}"
+            EOH
+          end if projectdata['do_reinstall']
+        end
 
+        # database
+        cookbookname = projectdata['cookbook_name'] || cookbook_name.to_s
         template File.join(projectdata['projectdir'], projectdata['database_settings_file']) do
           source projectdata['database_template']
           cookbook cookbookname
@@ -114,11 +148,13 @@ begin
               :database => databasedata
           )
         end
+
       end
+
 
       # execute database migrations
       if projectdata['db_migration'] === true
-        migrationcmd = 'php public/index.php migration apply'
+        migrationcmd = 'php htdocs/shell/apply-updates.php run'
       else
         migrationcmd = projectdata['db_migration']
       end
