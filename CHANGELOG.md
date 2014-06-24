@@ -1,5 +1,6 @@
-Magento Cookbook
-===============
+Magento CHANGELOG
+=================
+This is the Changelog for the Magento cookbook.
 
 v0.3.0 (2014-06-18)
 -------------------
