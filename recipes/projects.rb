@@ -28,6 +28,8 @@ begin
   data_bag('projects').each do |project|
     projectdata = data_bag_item('projects', project)
 
+    next if projectdata['enable'] === false
+
     begin
       Chef::Log.debug(projectdata.inspect)
 
